@@ -38,7 +38,7 @@ public enum Locale {
         if(configuration == null)
             return "Locale configuration not initialized.";
 
-        String message = configuration.getString(name());
+        String message = configuration.getString("locale." + this.name().toLowerCase());
         if(message == null)
             return "Locale message not found.";
 
