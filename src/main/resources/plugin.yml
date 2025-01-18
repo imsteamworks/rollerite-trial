@@ -2,3 +2,26 @@ name: rollerite-trial
 version: '1.0-SNAPSHOT'
 main: dev.fright.rollerite.TrialPlugin
 api-version: '1.21'
+commands:
+  enderchest:
+    description: Open a enderchest of the target.
+    usage: /enderchest [player]
+    aliases: [ec]
+  fix:
+    description: Fixes your main hand item.
+    usage: /fix
+  gamemode:
+    description: Switch your/the target's gamemode.
+    usage: /gamemode <gamemode> [player]
+    aliases: [gm]
+  god:
+    description: Enable/disable the target's god mode.
+    usage: /god [player]
+  openinventory:
+    description: Open the your/target's inventory.
+    usage: /openinventory <player>
+    aliases: [oi]
+  trash:
+    description: Open a trash inventory.
+    usage: /trash
+    aliases: [t,garbage]

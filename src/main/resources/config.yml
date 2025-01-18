@@ -1,0 +1,20 @@
+locale:
+  usage: "&cError! Usage: /{0} {1}" # {0} = command, {1} = usage
+  no-permission: "&cYou do not have permission to use this command."
+  player-only: "&cYou must be a player to use this command."
+  player-not-found: "&cPlayer not found."
+  player-not-supplied: "&cYou must specify a player to use this command."
+
+  enderchest-opened: "&eOpened {0}'s enderchest." # {0} = target username
+  inventory-opened: "&eOpened {0}'s inventory." # {0} = target username
+  trash-opened: "&eTrash inventory opened, all items inside of this inventory will be deleted on close."
+
+  item-not-held: "&cYou must be holding an item to use this command."
+  item-not-fixable: "&cThis item cannot be fixed."
+  item-fixed: "&aYour item has been fixed."
+
+  gamemode-target: "&eSet {0}'s gamemode to {1}." # {0} = target username, {1} = gamemode
+  gamemode-self: "&eSet your gamemode to {0}." # {0} = gamemode
+
+  god-status-target: "&eGod mode {status}." # {0} = status ("enabled" / "disabled")
+  god-status-executor: "&eGod mode {0} for {1}." # {0} = status ("enabled" / "disabled"), {1} = target username
