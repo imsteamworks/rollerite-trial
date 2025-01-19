@@ -1,5 +1,6 @@
 package dev.fright.rollerite.command;
 
+import dev.fright.rollerite.Locale;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -12,44 +13,44 @@ public class GamemodeCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if(!sender.hasPermission("rollerite.gamemode")) {
-            sender.sendMessage("You do not have permission to use this command.");
-            return false;
+        if (!sender.hasPermission("rollerite.gamemode")) {
+            sender.sendMessage(Locale.NO_PERMISSION.get());
+            return true;
         }
 
-        if(args.length < 1) {
-            sender.sendMessage("Usage: /gamemode <type> [player]");
-            return false;
+        if (args.length < 1) {
+            sender.sendMessage(Locale.USAGE.get(label, "<type> [player]"));
+            return true;
         }
 
         GameMode providedGameMode;
         try {
             providedGameMode = GameMode.valueOf(args[0].toUpperCase());
         } catch (IllegalArgumentException e) {
-            sender.sendMessage("Invalid gamemode type.");
-            return false;
-        }
-
-        Player providedTarget;
-        if(args.length > 1) {
-            providedTarget = Bukkit.getPlayer(args[1]);
-            if(providedTarget == null) {
-                sender.sendMessage("Player not found.");
-                return false;
-            }
-
-            providedTarget.setGameMode(providedGameMode);
-            sender.sendMessage("Set " + providedTarget.getName() + "'s gamemode to " + providedGameMode.toString().toLowerCase() + ".");
+            sender.sendMessage(Locale.GAMEMODE_INVALID.get());
             return true;
         }
 
-        if(!(sender instanceof Player)) {
-            sender.sendMessage("You must be a player to change your own gamemode.");
-            return false;
+        Player providedTarget;
+        if (args.length > 1) {
+            providedTarget = Bukkit.getPlayer(args[1]);
+            if (providedTarget == null) {
+                sender.sendMessage(Locale.PLAYER_NOT_FOUND.get());
+                return true;
+            }
+
+            providedTarget.setGameMode(providedGameMode);
+            sender.sendMessage(Locale.GAMEMODE_TARGET.get(providedTarget.getName(), providedGameMode.toString().toLowerCase()));
+            return true;
+        }
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(Locale.PLAYER_ONLY.get());
+            return true;
         }
 
         ((Player) sender).setGameMode(providedGameMode);
-        sender.sendMessage("Set your gamemode to " + providedGameMode.toString().toLowerCase() + ".");
+        sender.sendMessage(Locale.GAMEMODE_SELF.get(providedGameMode.toString().toLowerCase()));
         return true;
     }
 }

@@ -25,3 +25,9 @@ commands:
     description: Open a trash inventory.
     usage: /trash
     aliases: [t,garbage]
+  tpa:
+    description: Request to teleport to the target.
+    usage: /tpa <player>
+  tpaaccept:
+    description: Accept a teleport request.
+    usage: /tpaaccept

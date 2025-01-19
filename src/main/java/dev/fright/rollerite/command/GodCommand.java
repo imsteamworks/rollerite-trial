@@ -19,7 +19,7 @@ public class GodCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!sender.hasPermission("rollerite.god")) {
             sender.sendMessage(Locale.NO_PERMISSION.get());
-            return false;
+            return true;
         }
 
         Player targetPlayer = null;
@@ -27,14 +27,14 @@ public class GodCommand implements CommandExecutor {
             targetPlayer = Bukkit.getPlayer(args[0]);
             if (targetPlayer == null) {
                 sender.sendMessage(Locale.PLAYER_NOT_FOUND.get());
-                return false;
+                return true;
             }
         }
 
         if (targetPlayer == null) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(Locale.PLAYER_NOT_SUPPLIED.get());
-                return false;
+                return true;
             }
 
             targetPlayer = (Player) sender;
@@ -43,8 +43,8 @@ public class GodCommand implements CommandExecutor {
         final boolean isGodModeEnabled = handler.isInGodMode(targetPlayer.getUniqueId());
         handler.toggleGodMode(targetPlayer.getUniqueId());
 
-        String status = isGodModeEnabled ? "disabled" : "enabled";
-        targetPlayer.sendMessage(Locale.GOD_STATUS_TARGET.get());
+        final String status = isGodModeEnabled ? "disabled" : "enabled";
+        targetPlayer.sendMessage(Locale.GOD_STATUS_TARGET.get(status));
         if (!targetPlayer.equals(sender))
             sender.sendMessage(Locale.GOD_STATUS_EXECUTOR.get(status, targetPlayer.getName()));
 

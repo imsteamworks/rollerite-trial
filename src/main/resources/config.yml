@@ -1,20 +1,29 @@
 locale:
   usage: "&cError! Usage: /{0} {1}" # {0} = command, {1} = usage
-  no-permission: "&cYou do not have permission to use this command."
-  player-only: "&cYou must be a player to use this command."
-  player-not-found: "&cPlayer not found."
-  player-not-supplied: "&cYou must specify a player to use this command."
+  no_permission: "&cYou do not have permission to use this command."
+  player_only: "&cYou must be a player to use this command."
+  player_not_found: "&cPlayer not found."
+  player_not_supplied: "&cYou must specify a player to use this command."
 
-  enderchest-opened: "&eOpened {0}'s enderchest." # {0} = target username
-  inventory-opened: "&eOpened {0}'s inventory." # {0} = target username
-  trash-opened: "&eTrash inventory opened, all items inside of this inventory will be deleted on close."
+  enderchest_opened: "&eOpened {0}''s enderchest." # {0} = target username
+  inventory_opened: "&eOpened {0}''s inventory." # {0} = target username
+  trash_opened: "&eTrash inventory opened, all items inside of this inventory will be deleted on close."
 
-  item-not-held: "&cYou must be holding an item to use this command."
-  item-not-fixable: "&cThis item cannot be fixed."
-  item-fixed: "&aYour item has been fixed."
+  item_not_held: "&cYou must be holding an item to use this command."
+  item_not_fixable: "&cThis item cannot be fixed."
+  item_fixed: "&aYour item has been fixed."
 
-  gamemode-target: "&eSet {0}'s gamemode to {1}." # {0} = target username, {1} = gamemode
-  gamemode-self: "&eSet your gamemode to {0}." # {0} = gamemode
+  gamemode_target: "&eSet {0}''s gamemode to {1}." # {0} = target username, {1} = gamemode
+  gamemode_self: "&eSet your gamemode to {0}." # {0} = gamemode
+  gamemode_invalid: "&cInvalid gamemode. Please use survival, creative, adventure, or spectator."
 
-  god-status-target: "&eGod mode {status}." # {0} = status ("enabled" / "disabled")
-  god-status-executor: "&eGod mode {0} for {1}." # {0} = status ("enabled" / "disabled"), {1} = target username
+  god_status_target: "&eGod mode {0}." # {0} = status ("enabled" / "disabled")
+  god_status_executor: "&eGod mode {0} for {1}." # {0} = status ("enabled" / "disabled"), {1} = target username
+  
+  no_teleport_requests: "&cYou have no teleport requests."
+  teleport_request_sent: "&eTeleport request sent to {0}." # {0} = target username
+  teleport_request_received: "&eTeleport request received from {0}." # {0} = target username
+  teleport_request_accepted_self: "&e{0}''s teleport request accepted." # {0} = target username
+  teleport_request_accepted_other: "&e{0} has accepted your teleport request." # {0} = target username
+  teleport_request_already_requested: "&cYou have already requested to teleport to {0}." # {0} = target username
+  teleport_request_failed: "&cTeleport request failed."

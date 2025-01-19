@@ -3,6 +3,7 @@ package dev.fright.rollerite.handlers;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,13 +17,24 @@ public class GodHandler implements Listener {
 
     @EventHandler
     public void onPlayerHungerEvent(final @NotNull FoodLevelChangeEvent event) {
-        if(!(event.getEntity() instanceof Player player))
+        if (!(event.getEntity() instanceof Player player))
             return;
 
-        if(!this.playerUuidSet.contains(player.getUniqueId()))
+        if (!this.playerUuidSet.contains(player.getUniqueId()))
             return;
 
         event.setCancelled(true); // Cancel if player loses hunger.
+    }
+
+    @EventHandler
+    public void onEntityDamageEvent(final @NotNull EntityDamageEvent event) {
+        if(!(event.getEntity() instanceof Player player))
+            return;
+
+        if (!this.playerUuidSet.contains(player.getUniqueId()))
+            return;
+
+        event.setCancelled(true); // Cancel if player takes damage.
     }
 
     /**
